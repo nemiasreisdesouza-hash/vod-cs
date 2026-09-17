@@ -36,8 +36,11 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   }
   if (res.status === 401 && typeof window !== "undefined" && !path.startsWith("/api/auth")) {
     localStorage.removeItem("vod_access");
-    window.location.href = "/login";
-    throw new Error("Sessão expirada");
+    const here = window.location.pathname;
+    if (!here.startsWith("/login") && !here.startsWith("/register")) {
+      window.location.href = "/login";
+    }
+    throw new Error("Sessão expirada — entre novamente");
   }
   if (!res.ok) {
     const text = await res.text().catch(() => "");

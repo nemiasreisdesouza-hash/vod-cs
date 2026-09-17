@@ -31,8 +31,9 @@ export default function Landing() {
           Envie sua demo .dem ou VOD .mp4 e receba scoreboard completo, heatmaps,
           erros táticos com timestamp e um plano de melhoria personalizado.
         </p>
-        <div className="mt-8 flex justify-center gap-3">
-          <Link href="/register" className="rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-3 font-semibold">Analisar minha primeira demo grátis</Link>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Link href="/login?demo=1" className="rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-3 font-semibold">🎭 Ver demonstração — sem cadastro</Link>
+          <Link href="/register" className="rounded-xl border border-white/10 px-6 py-3 hover:bg-white/5">Criar conta grátis</Link>
           <Link href="/pricing" className="rounded-xl border border-white/10 px-6 py-3 hover:bg-white/5">Ver planos</Link>
         </div>
         <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3 text-left sm:grid-cols-4">
