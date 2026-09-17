@@ -1,0 +1,10 @@
+[
+  {"nickname": "ZywOo", "role": "AWPer", "game": "cs2", "rating": 1.32, "adr": 86.4, "kd_diff": 12.5, "hs_pct": 42.0, "kast": 74.1, "impact": 1.28},
+  {"nickname": "s1mple", "role": "AWPer", "game": "cs2", "rating": 1.28, "adr": 84.2, "kd_diff": 11.8, "hs_pct": 44.5, "kast": 73.5, "impact": 1.31},
+  {"nickname": "NiKo", "role": "Rifler", "game": "cs2", "rating": 1.18, "adr": 82.1, "kd_diff": 8.2, "hs_pct": 48.9, "kast": 72.0, "impact": 1.15},
+  {"nickname": "donk", "role": "Entry Fragger", "game": "cs2", "rating": 1.35, "adr": 92.7, "kd_diff": 14.1, "hs_pct": 46.3, "kast": 75.2, "impact": 1.42},
+  {"nickname": "m0NESY", "role": "AWPer", "game": "cs2", "rating": 1.22, "adr": 80.5, "kd_diff": 9.4, "hs_pct": 40.1, "kast": 73.0, "impact": 1.19},
+  {"nickname": "flameZ", "role": "Support", "game": "cs2", "rating": 1.08, "adr": 76.3, "kd_diff": 4.5, "hs_pct": 45.0, "kast": 71.8, "impact": 1.06},
+  {"nickname": "apEX", "role": "IGL", "game": "cs2", "rating": 0.98, "adr": 68.9, "kd_diff": 0.5, "hs_pct": 41.2, "kast": 70.4, "impact": 0.95},
+  {"nickname": "XANTARES", "role": "Entry Fragger", "game": "cs2", "rating": 1.15, "adr": 84.8, "kd_diff": 7.9, "hs_pct": 52.4, "kast": 71.2, "impact": 1.18}
+]

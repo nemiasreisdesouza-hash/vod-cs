@@ -1,0 +1,20 @@
+# deps / builds
+node_modules/
+frontend/.next/
+frontend/out/
+__pycache__/
+*.pyc
+.venv/
+.venv-vod/
+
+# local data
+backend/dev.db
+*.db
+*.sqlite
+uploads/
+.env
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/

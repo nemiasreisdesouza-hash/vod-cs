@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html.dark body { background: #111827; color: #F3F4F6; }
+html:not(.dark) body { background: #F9FAFB; color: #111827; }
+html:not(.dark) .bg-card { background: #FFFFFF !important; border-color: #E5E7EB !important; }
+html:not(.dark) .text-gray-300, html:not(.dark) .text-gray-400 { color: #4B5563 !important; }
+
+body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 8px; }
