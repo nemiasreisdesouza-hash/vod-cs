@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "@/lib/api";
+import { ensureDemoChecked, useDemo } from "@/stores/demo-store";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 
@@ -17,8 +18,20 @@ type Form = z.infer<typeof schema>;
 
 export default function Login() {
   const router = useRouter();
+  const demoEnabled = useDemo((s) => s.enabled);
+  const demoChecked = useDemo((s) => s.checked);
   const [error, setError] = useState("");
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<Form>({ resolver: zodResolver(schema) });
+
+  useEffect(() => {
+    void ensureDemoChecked();
+  }, []);
+
+  const enterDemo = () => {
+    localStorage.setItem("vod_access", "demo-access-token");
+    localStorage.setItem("vod_refresh", "demo-refresh-token");
+    router.push("/dashboard");
+  };
 
   const onSubmit = async (data: Form) => {
     setError("");
@@ -40,7 +53,16 @@ export default function Login() {
       <Link href="/" className="mb-6 text-center text-xl font-extrabold">🎯 VOD Analyst Pro</Link>
       <div className="rounded-2xl border border-white/10 bg-card p-6">
         <h1 className="text-xl font-bold">Entrar</h1>
-        <p className="mb-4 text-sm text-gray-400">Demo: pro@vod.gg / pro123</p>
+        {demoChecked && demoEnabled ? (
+          <div className="mb-4 rounded-xl border border-yellow-500/40 bg-yellow-500/10 p-3 text-sm text-yellow-200">
+            🎭 <b>Modo demonstração ativo</b> — qualquer email/senha funciona.
+            <button onClick={enterDemo} className="mt-2 w-full rounded-xl bg-yellow-500/25 px-4 py-2 font-semibold text-yellow-100 hover:bg-yellow-500/35">
+              ⚡ Entrar direto na demo
+            </button>
+          </div>
+        ) : (
+          <p className="mb-4 text-sm text-gray-400">Demo: pro@vod.gg / pro123</p>
+        )}
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
           <div>
             <Input placeholder="Email" type="email" {...register("email")} />

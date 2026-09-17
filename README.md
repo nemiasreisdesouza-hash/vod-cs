@@ -50,6 +50,25 @@ npm run dev  # http://localhost:3000
 
 Swagger: http://localhost:8000/docs • Health: http://localhost:8000/health
 
+## 🎭 Interruptor inteligente: modo demo x produção
+
+O frontend detecta automaticamente se há um backend alcançável:
+
+| Situação | Comportamento |
+|---|---|
+| **Sem chaves / API fora do ar** (deploy simples na Vercel) | 🎭 **Modo demo**: 5 partidas, dashboard, heatmaps, VOD player e relatórios 100% funcionais com dados simulados (banner amarelo indica o modo) |
+| **Com backend configurado** | 🚀 **Produção**: todos os dados vêm da API real |
+
+Forçar manualmente: `?demo=1` (demo) ou `?demo=0` (real). Ou `NEXT_PUBLIC_DEMO_MODE=true` no build.
+
+### Deploy na Vercel (2 minutos, grátis, sem banco)
+
+1. Importe o repositório na Vercel com **Root Directory = `frontend`**
+2. **Não configure nenhuma variável** → o site sobe em modo demo completo
+3. Quando tiver o backend pronto (ex: Railway/Render/EC2), adicione:
+   - `NEXT_PUBLIC_API_URL=https://sua-api.com` (e libere o CORS no backend via `CORS_ORIGINS`)
+4. Redeploy → o mesmo site vira produção, sem mudar código
+
 ## 🧪 Testes
 
 ```bash

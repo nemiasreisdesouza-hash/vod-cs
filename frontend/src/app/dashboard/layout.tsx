@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileNav } from "@/components/layout/MobileNav";
+import { DemoBanner } from "@/components/layout/DemoBanner";
 import { useAuth } from "@/stores/auth-store";
 import { Skeleton } from "@/components/ui/Skeleton";
 
@@ -34,7 +35,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <div className="flex min-h-screen bg-base">
       <Sidebar />
-      <main className="mx-auto w-full max-w-6xl flex-1 p-4 pb-20 sm:p-6 md:pb-6">{children}</main>
+      <main className="mx-auto w-full max-w-6xl flex-1 p-4 pb-20 sm:p-6 md:pb-6">
+        <DemoBanner />
+        {children}
+      </main>
       <MobileNav />
     </div>
   );

@@ -38,6 +38,18 @@ def startup() -> None:
             log.warning("Seed skipped: %s", exc)
 
 
+@app.get("/")
+def root():
+    """Friendly landing for the raw API (the website lives on the frontend)."""
+    return {
+        "app": settings.app_name,
+        "status": "online",
+        "docs": "/docs",
+        "health": "/health",
+        "note": "Esta é a API. A interface web roda no frontend (porta 3000).",
+    }
+
+
 @app.get("/health")
 def health():
     return {"status": "ok", "app": settings.app_name}
